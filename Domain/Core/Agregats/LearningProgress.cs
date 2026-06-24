@@ -36,7 +36,11 @@ public class LearningProgress
         CorrectCount++;
         Streak++;
 
-        SrsStage = SrsStage.Next();
+        if (Streak >= 5)
+        {
+            SrsStage = SrsStage.Next();
+            Streak = 0;
+        }
         NextReviewDate = SrsStage.CalculateNextReview(DateTime.UtcNow);
     }
 
