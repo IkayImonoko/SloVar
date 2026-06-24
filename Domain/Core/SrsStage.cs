@@ -41,6 +41,16 @@ public sealed class SrsStage
 
         return Stages[Level - 1];
     }
-
+    public DateTime CalculateNextReview(DateTime now)
+    {
+        return Level switch
+        {
+            0 => now.AddHours(4),
+            1 => now.AddDays(2),
+            2 => now.AddDays(7),
+            3 => now.AddDays(30),
+            _ => DateTime.MaxValue
+        };
+    }
     public override string ToString() => Name;
 }
