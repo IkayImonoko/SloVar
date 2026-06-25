@@ -2,11 +2,11 @@
 
 public sealed class SrsStage
 {
-    public static readonly SrsStage Apprentice = new(0, "Apprentice");
-    public static readonly SrsStage Guru = new(1, "Guru");
-    public static readonly SrsStage Master = new(2, "Master");
-    public static readonly SrsStage Enlightened = new(3, "Enlightened");
-    public static readonly SrsStage Burned = new(4, "Burned");
+    public static readonly SrsStage Apprentice = new(0, "Apprentice",5);
+    public static readonly SrsStage Guru = new(1, "Guru",4);
+    public static readonly SrsStage Master = new(2, "Master",3);
+    public static readonly SrsStage Enlightened = new(3, "Enlightened",2);
+    public static readonly SrsStage Burned = new(4, "Burned",0);
 
     private static readonly SrsStage[] Stages =
     {
@@ -19,11 +19,13 @@ public sealed class SrsStage
 
     public int Level { get; }
     public string Name { get; }
+    public int RequiredCorrectAnswers { get; }
 
-    private SrsStage(int level, string name)
+    private SrsStage(int level, string name, int requiredCorrectAnswers)
     {
         Level = level;
         Name = name;
+        RequiredCorrectAnswers = requiredCorrectAnswers;
     }
 
     public SrsStage Next()

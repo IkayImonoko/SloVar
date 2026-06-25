@@ -10,7 +10,7 @@ public class LearningProgress
 
     public DateTime NextReviewDate { get; private set; }
 
-    public int Streak { get; private set; }
+    public int CorrectAnswersInStage  { get; private set; }
     public int CorrectCount { get; private set; }
     public int WrongCount { get; private set; }
     
@@ -21,7 +21,7 @@ public class LearningProgress
         CardId = cardId;
         SrsStage = SrsStage.Apprentice;
         NextReviewDate = DateTime.UtcNow;
-        Streak = 0;
+        CorrectAnswersInStage  = 0;
         CorrectCount = 0;
         WrongCount = 0;
     }
@@ -34,12 +34,12 @@ public class LearningProgress
     public void RegisterCorrectAnswer()
     {
         CorrectCount++;
-        Streak++;
+        CorrectAnswersInStage ++;
 
-        if (Streak >= 5)
+        if (CorrectAnswersInStage  >= SrsStage.RequiredCorrectAnswers)
         {
             SrsStage = SrsStage.Next();
-            Streak = 0;
+            CorrectAnswersInStage  = 0;
         }
         NextReviewDate = SrsStage.CalculateNextReview(DateTime.UtcNow);
     }
@@ -47,7 +47,7 @@ public class LearningProgress
     public void RegisterWrongAnswer()
     {
         WrongCount++;
-        Streak = 0;
+        CorrectAnswersInStage  = 0;
 
         SrsStage = SrsStage.Previous();
         NextReviewDate = SrsStage.CalculateNextReview(DateTime.UtcNow);
