@@ -1,0 +1,8 @@
+﻿public class Level
+{
+    public Guid Id { get; private set; }
+    
+    private readonly List<Card> _cards = [];
+
+    public IReadOnlyCollection<Card> Cards => _cards;
+}
