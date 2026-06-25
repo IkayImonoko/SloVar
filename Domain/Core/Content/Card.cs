@@ -1,4 +1,6 @@
-﻿public class Card
+﻿namespace Domain.Core.Content;
+
+public class Card
 {
     public Guid Id { get; private set; }
     

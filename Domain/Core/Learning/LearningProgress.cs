@@ -1,4 +1,4 @@
-﻿namespace Domain.Core.Agregats;
+﻿namespace Domain.Core.Learning;
 
 public class LearningProgress 
 {

@@ -1,4 +1,4 @@
-﻿namespace Domain.Core;
+﻿namespace Domain.Core.Learning;
 
 public sealed class SrsStage
 {
