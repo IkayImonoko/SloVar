@@ -18,5 +18,14 @@ public class Level
         return new(number);
     }
 
+    public void AddCard(
+        string norwegian,
+        string russian)
+    {
+        _cards.Add(
+            Card.Create(
+                norwegian,
+                russian));
+    }
     public IReadOnlyCollection<Card> Cards => _cards;
 }

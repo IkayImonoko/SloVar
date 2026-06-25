@@ -8,9 +8,9 @@ public class Card
 
     public string Russian { get; private set; }
 
-    public string? Example { get; private set; }
-
-    public string? ExampleTranslation { get; private set; }
+    // public string? Example { get; private set; }
+    //
+    // public string? ExampleTranslation { get; private set; }
 
     private Card() { }
 

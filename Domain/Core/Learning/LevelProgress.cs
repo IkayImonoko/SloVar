@@ -9,6 +9,8 @@ public class LevelProgress
     public Guid LevelId { get; private set; }
 
     public int UnlockedCardsCount { get; private set; }
+    
+    public int InitialUnlockedCards { get; private set; }
 
     public bool IsCompleted { get; private set; }
 
@@ -24,6 +26,7 @@ public class LevelProgress
         Id = Guid.NewGuid();
         LearnerId = learnerId;
         LevelId = levelId;
+        InitialUnlockedCards = initialUnlockedCards;
         UnlockedCardsCount = initialUnlockedCards;
     }
 
@@ -49,8 +52,11 @@ public class LevelProgress
         }
     }
     
-    public void Complete()
+    public void Complete(int guruCardsCount, int totalCards)
     {
+        if (guruCardsCount != totalCards)
+            throw new InvalidOperationException();
+
         IsCompleted = true;
     }
 }
