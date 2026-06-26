@@ -52,11 +52,8 @@ public class LevelProgress
         }
     }
     
-    public void Complete(int guruCardsCount, int totalCards)
+    public void Complete()
     {
-        if (guruCardsCount != totalCards)
-            throw new InvalidOperationException();
-
         IsCompleted = true;
     }
 }
